@@ -8,7 +8,6 @@ I am a beginner game developer.
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
 </div>
 
-### 🐍 Contribution Snake
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Graf2013/Graf2013/output/github-contribution-grid-snake-dark.svg">
