@@ -1,42 +1,22 @@
-name: Generate Snake Animation
+name: Generate Snake
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Запускається щодня о півночі
-  workflow_dispatch:  # Дозволяє запустити вручну
-  push:
-    branches:
-      - main
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 jobs:
-  generate:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: write
-    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      
-      - name: Generate Snake Animation
-        uses: Platane/snk@v3
+      - uses: actions/checkout@v2
+      - uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
-            dist/ocean.gif?color_snake=#00D9FF&color_dots=#0d1117,#1a3a52,#26547c,#3a7ca5,#4a9eff
-            dist/purple-dream.svg?color_snake=#BF40BF&color_dots=#0d1117,#2d1b69,#6a0dad,#9370db,#dda0dd
-            dist/fire.gif?color_snake=#FF4500&color_dots=#0d1117,#8B0000,#DC143C,#FF6347,#FFA500
-            dist/matrix.svg?color_snake=#00ff00&color_dots=#0d1117,#003b00,#005200,#00ff00,#39ff14
-            dist/sunset.gif?color_snake=#FF6B6B&color_dots=#0d1117,#2C3E50,#E74C3C,#F39C12,#F4D03F
-            dist/cyberpunk.svg?color_snake=#FF0080&color_dots=#0d1117,#0a0e27,#6930c3,#ff006e,#00f5ff
-            dist/neon.gif?color_snake=#FFFF00&color_dots=#0d1117,#1a1a2e,#16213e,#0f3460,#e94560
-            dist/emerald.svg?color_snake=#50C878&color_dots=#0d1117,#0b3d0b,#0f5132,#198754,#20c997
-      
-      - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+      - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
