@@ -9,5 +9,9 @@ I am a beginner game developer.
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Graf2013/Graf2013/output/matrix.svg" alt="Matrix Snake" />
+ <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Graf2013/Graf2013/output/cyberpunk.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Graf2013/Graf2013/output/cyberpunk.svg">
+  <img alt="GitHub Snake Cyberpunk" src="https://raw.githubusercontent.com/Graf2013/Graf2013/output/cyberpunk.svg">
+</picture>
 </div>
