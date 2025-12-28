@@ -2,20 +2,25 @@ name: Generate Snake
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+    # запускати автоматично щодня опівночі
+    - cron: "0 0 * * *" 
+  workflow_dispatch: # дозволяє запускати вручну
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
       - uses: Platane/snk@v3
         with:
+          # ім'я користувача GitHub
           github_user_name: ${{ github.repository_owner }}
+          # перелік файлів для генерації
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            
       - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
